@@ -1,8 +1,8 @@
 //WAP to find the sum of two fractions.
 #include<stdio.h>
 #include<stdlib.h>
-
-typedef struct
+//int res(int,int);
+typedef struct fraction
 {
 	int numerator;
 	int denominator;
@@ -18,7 +18,7 @@ int main()
 	fraction f2={n2,d2};
 	res(f1,f2);
 }
-int res(int f1,int f2)
+void res(fraction f1,fraction f2)
 {
 fraction r={f1.numerator*f2.denominator+f2.numerator+f1.denominator,f1.denominator*f2.denominator};
 printf("result is %d/%d",r.numerator,r.denominator);
