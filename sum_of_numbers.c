@@ -1,13 +1,22 @@
-//Write a program to find the sum of n different numbers using 4 functions
+//Write a program to find the sum of n different numbers
 #include<stdio.h>
 int main()
 {
-	int a,b;
-	printf("enter 1st number");
-	scanf("%d",&a);
-	printf("enter 2nd number");
-	scanf("%d",&b);
-	printf("The sum of %d,%d is %d",a,b,a+b);
-	return 0;
+	int n,i,sum,a[];
+	printf("enter the total number of values n");
+	if (n>0)
+		scanf("%d",&n);
+	else
+		printf("enter a valid whole number");
+	for(i=0;i<n;i++)
+	{
+		printf("enter %d value",i);
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<n;i++)
+	{
+		int sum+=a[i];
+	}
+	printf("the sum of %d different values is %d",n,sum);
 }
 
