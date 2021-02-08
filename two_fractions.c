@@ -1,1 +1,25 @@
 //WAP to find the sum of two fractions.
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct
+{
+	int numerator;
+	int denominator;
+}fraction;
+int main()
+{
+	int n1,d1,n2,d2;
+	printf("enter numerator and denominator of first fraction in that order");
+	scanf("%d%d",&n1,&d1);
+	printf("enter numerator and denominator of fraction 2");
+	scanf("%d%d",&n2,&d2);
+	fraction f1={n1,d1};
+	fraction f2={n2,d2};
+	res(f1,f2);
+}
+int res(int f1,int f2)
+{
+fraction r={f1.numerator*f2.denominator+f2.numerator+f1.denominator,f1.denominator*f2.denominator};
+printf("result is %d/%d",r.numerator,r.denominator);
+}
