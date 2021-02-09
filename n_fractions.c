@@ -1,7 +1,7 @@
 #include <stdio.h>
-struct fraction{
-    int numerator[100];
-    int denominator[100];
+struct frac{
+    int numerator[90];
+    int denominator[90];
 };
 int main()
 {
