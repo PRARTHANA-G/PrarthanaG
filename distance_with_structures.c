@@ -12,43 +12,34 @@ struct l{
     struct cor last;
 };
 float calc(struct l);
-int xinput();
-int yinput();
-
 int main()
 {
      struct cor p;
 	struct l points;
 	float dist;
-	input1();
-	input2();
-	dist= calc(points);
-	printf("distance is %f",dist);
+	input(points);
 	return 0;
-	//calc( p1, p2);
+	
 }
-int input1()
+void input(struct l points)
 {
     struct cor p;
-	struct l points;
-    printf("enter x co-ordinate of point 1");
-	scanf("%f",&points.begin.x);
-	printf("enter y co-ordinate of point 1");
-	scanf("%f",&points.begin.y);
+	struct l point;
+    printf("enter x co-ordinate of point one");
+	scanf("%f",&point.begin.x);
+	printf("enter y co-ordinate of point one");
+	scanf("%f",&point.begin.y);
+	printf("enter x co-ordinate of point two");
+	scanf("%f",&point.last.x);
+	printf("enter y co-ordinate of point two");
+	scanf("%f",&point.last.y);
+    float a=calc(point);
+	printf("%f is the distnace",x);
     
 }
-int input2()
-{
-    struct cor p;
-	struct l points;
-    printf("enter x co-ordinate of point 2");
-	scanf("%f",&points.last.x);
-	printf("enter y co-ordinate of point 2");
-	scanf("%f",&points.last.y);
-}
+
 float calc(struct l points)
 {
     float d=sqrt((points.begin.x-points.last.x)*(points.begin.x-points.last.x)+(points.begin.y-points.last.y)*(points.begin.y-points.last.y));
-	return d;
-    
+    return d;
 }
