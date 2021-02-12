@@ -34,7 +34,7 @@ void input(struct l points)
 	printf("enter y co-ordinate of point two");
 	scanf("%f",&point.last.y);
     float a=calc(point);
-	printf("%f is the distnace",x);
+	printf("%f is the distnace",a);
     
 }
 
