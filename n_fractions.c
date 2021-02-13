@@ -2,7 +2,7 @@
 struct frac{
     int numerator[90];
     int denominator[90];
-};
+}f;
 int main()
 {
     int n;
@@ -12,14 +12,14 @@ int main()
     for(int i=0;i<n;i++)
     {
         printf("Enter numerator of %d fraction", (i+1));
-        scanf("%d", &numer[i]);
+        scanf("%d", &f.numerator[i]);
         printf("Enter denominator of %d fraction", (i+1));
-        scanf("%d", &denom[i]);
+        scanf("%d", &f.denominator[i]);
     }
-    redform(n, numer, denom);
+    form(n, f.numerator, f.denominator);
     return 0;
 }
-void redform(int n, int numer[],int denom[])
+void form(int n, int numer[],int denom[])
 {
     int fnum = 0;
     int fden = lcm(denom, n);
