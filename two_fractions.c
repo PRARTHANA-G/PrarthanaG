@@ -1,5 +1,3 @@
-//WAP to find the sum of two fractions.
-
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct fraction
@@ -7,7 +5,7 @@ typedef struct fraction
 	int num;
 	int denom;
 }fraction;
-fraction fract()
+fraction input()
 {
     
     struct fraction f;
@@ -31,13 +29,14 @@ fraction sum(struct fraction f1,struct fraction f2)
     
     fraction add={(f1.num*f2.denom+f2.num*f1.denom)/lcm, 
     (f1.denom*f2.denom)/lcm};
+    return add;
 }
 int main()
 {
 	
 struct fraction f1,f2,result;
-f1=fract();
-f2=fract();
+f1=input();
+f2=input();
 result=sum(f1,f2);
 printf("The sum of these two fractions is:\n%d/%d",result.num,result.denom);
 	
