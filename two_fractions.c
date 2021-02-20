@@ -1,4 +1,5 @@
 //WAP to find the sum of two fractions.
+
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct fraction
@@ -6,39 +7,40 @@ typedef struct fraction
 	int num;
 	int denom;
 }fraction;
-fraction input1()
+fraction fract()
 {
     
-    struct fraction f1;
-	printf("enter numerator and denominator of first fraction in that order\n");
-	scanf("%d%d",&f1.num,&f1.denom);
+    struct fraction f;
+	printf("enter numerator and denominator of  fraction in that order\n");
+	scanf("%d%d",&f.num,&f.denom);
 
-	return f1;
+	return f;
 }
-fraction input2()
+
+int commondivisor(int a, int b)
 {
-    //int n2,d2;
-    struct fraction f2;
-    printf("enter numerator and denominator of fraction two\n");
-	scanf("%d%d",&f2.num,&f2.denom);
-	//f2={n2,d2};
-	return f2;
+   if (b == 0)
+   {
+      return a;
+   }
+   return commondivisor(b%a,a);
+}
+fraction sum(struct fraction f1,struct fraction f2)
+{
+    int lcm=commondivisor(f1.denom,f2.denom);
+    
+    fraction add={(f1.num*f2.denom+f2.num*f1.denom)/lcm, 
+    (f1.denom*f2.denom)/lcm};
 }
 int main()
 {
 	
-struct fraction f1,f2;
-f1=input1();
-f2=input2();
+struct fraction f1,f2,result;
+f1=fract();
+f2=fract();
+result=sum(f1,f2);
+printf("The sum of these two fractions is:\n%d/%d",result.num,result.denom);
 	
-	res(f1,f2);
-}
-void res(fraction f1,fraction f2)
-{
-if(f1.denom==f2.denom){
-    fraction r={f1.num+f2.num,f1.denom};
-    printf("result is %d/%d",r.num,r.denom);
-}
-
+	
 }
 
