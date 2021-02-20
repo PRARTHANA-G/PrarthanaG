@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct fraction
@@ -21,14 +22,14 @@ int commondivisor(int a, int b)
    {
       return a;
    }
-   return commondivisor(b%a,a);
+   return commondivisor(b,b%a);
 }
 fraction sum(struct fraction f1,struct fraction f2)
 {
-    int lcm=commondivisor(f1.denom,f2.denom);
+    int d=commondivisor(f1.denom,f2.denom);
+    fraction add={(f1.num*f2.denom+f2.num*f1.denom)/d, 
+    (f1.denom*f2.denom)/d};
     
-    fraction add={(f1.num*f2.denom+f2.num*f1.denom)/lcm, 
-    (f1.denom*f2.denom)/lcm};
     return add;
 }
 int main()
