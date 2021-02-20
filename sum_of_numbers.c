@@ -3,17 +3,18 @@ int input();
 int calc(int);
 int print(int);
 int main()
-{
-    input();
+{   int x,y;
+    x=input();
+    y=calc(x);
+    print(y);
+    
 }
 int input()
 {
     int n;
     printf("enter total number of values whose sum needs to be found\n");
     scanf("%d",&n);
-    calc(n);
-	
-    
+    return n;
 }
 int calc(int n)
 {
@@ -27,8 +28,8 @@ int calc(int n)
 	{
 		sum=sum + a[i];
 	}
-	printf("the sum of %d different values is %d",n,sum);
-	print(sum);
+	
+	return sum;
 
 }
 int print(int sum)
