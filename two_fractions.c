@@ -1,6 +1,6 @@
-
 #include<stdio.h>
 #include<stdlib.h>
+int commondivisor(int,int);
 typedef struct fraction
 {
 	int num;
@@ -16,14 +16,7 @@ fraction input()
 	return f;
 }
 
-int commondivisor(int a, int b)
-{
-   if (b == 0)
-   {
-      return a;
-   }
-   return commondivisor(b,b%a);
-}
+
 fraction sum(struct fraction f1,struct fraction f2)
 {
     int d=commondivisor(f1.denom,f2.denom);
@@ -43,4 +36,17 @@ printf("The sum of these two fractions is:\n%d/%d",result.num,result.denom);
 	
 	
 }
+int commondivisor(int a, int b)
+{
+    int hcf;
+    for(int i=1; i <= a && i <= b; ++i)
+    {
+        if(a%i==0 && b%i==0)
+        {
+             hcf = i;
+        }
+    }
+    return hcf;
+}
+
 
