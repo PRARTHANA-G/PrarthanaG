@@ -19,11 +19,14 @@ fraction input()
 
 fraction sum(struct fraction f1,struct fraction f2)
 {
-    int d=commondivisor(f1.denom,f2.denom);
+    int s,d;
+    d=commondivisor(f1.denom,f2.denom);
     fraction add={(f1.num*f2.denom+f2.num*f1.denom)/d, 
     (f1.denom*f2.denom)/d};
+    s=commondivisor(add.num,add.denom);
+    fraction final={(add.num)/s,add.denom/s};
     
-    return add;
+    return final;
 }
 int main()
 {
@@ -38,15 +41,13 @@ printf("The sum of these two fractions is:\n%d/%d",result.num,result.denom);
 }
 int commondivisor(int a, int b)
 {
-    int hcf;
-    for(int i=1; i <= a && i <= b; ++i)
-    {
-        if(a%i==0 && b%i==0)
-        {
-             hcf = i;
-        }
+    if(b==0){
+        return a;
     }
-    return hcf;
+    
+    return commondivisor(b,a%b);
+
 }
+
 
 
