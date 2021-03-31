@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<math.h>
+struct rect
+{
+	float x,y;
+	float area;
+};
+
+struct rect one_input()
+{
+	struct rect r1,r2,r3;
+	printf("Enter x,y co-ordinates of first vertex in order\n");
+	scanf("%f%f",&r1.x,&r1.y);
+	printf("Enter x,y co-ordinates of second vertex in order\n");
+	scanf("%f%f",&r2.x,&r2.y);
+	printf("Enter x,y co-ordinates of third vertex in order\n");
+	scanf("%f%f",&r3.x,&r3.y);
+
+	
+}
+void n_input(int n)
+{
+struct rect a[n];
+	for(int i=0;i<n;i++)
+		a[i]=one_input();
+}
+
+struct rect one_compute()
+{
+	struct rect r1, r2, r3,ar;
+	float l,b,a;
+	l=sqrt(((r2.x-r1.x)*(r2.x-r1.x))+((r2.y-r1.y)*(r2.y-r1.y)));
+	b=sqrt(((r3.x-r2.x)*(r3.x-r2.x))+((r3.y-r2.y)*(r3.y-r1.y)));
+	a=l*b;
+	ar.area=a;
+	return ar;
+	
+	
+}
+struct rect n_compute(int n)
+{
+	struct rect ar[n];
+	for(int i=0;i<n;i++)
+		ar[i]=one_compute();
+}
+void one_print()
+{
+    struct rect a;
+	printf("Area of the rectangle is:\n%f",a.area);
+}
+void n_print(int n)
+{
+	for(int i=0;i<n;i++)
+		one_print();
+}
+int main()
+{
+	int n;
+	printf("Enter number of rectangles");
+	scanf("%d",&n);
+	n_input(n);
+	n_compute(n);
+	n_print(n);
+	return 0;
+}
+
+
+
