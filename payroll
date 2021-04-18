@@ -1,0 +1,103 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct 
+{
+    char name[20];
+    float h;
+    float h_wage;
+    float pay;
+    int minutes;
+}emp;
+emp one_input()
+{
+    emp e;
+    printf("Enter name:\n");
+    scanf("%s", &e.name);
+    printf("Enter hourly wage:\n");
+    scanf("%f",&e.h_wage);
+
+    return e;
+}
+
+int find(int n, emp e[n], char name[])
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (!strcmp(name, e[i].name))
+            return i;
+    }
+
+    
+}
+
+void input_n(int n,emp e[n])
+{
+    for (int i = 0; i < n; i++)
+        e[i] = one_input();
+}
+
+void tc(int t,emp e[t])
+{
+    int n , min=0, k;
+    char name[30];
+    
+    printf("Enter number of time cards:\n");
+    scanf("%d", &n);
+    emp m[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("Enter %d name and minutes worked:\n",i);
+        scanf("%s %d", &name, &min);
+        k = find(n, e, name);
+        m[k].minutes += min;
+    }
+}
+
+float convert_hours(float minutes)
+{
+    return minutes / 60;
+}
+
+void one_compute(emp *p)
+{
+    p->h = convert_hours(p->minutes);
+    
+    if (p->h <= 40.00)
+        p->pay = p->h_wage * p->h;
+    else
+        p->pay = (p->h_wage * 40.00) + (1.5 * (p->h - 40.00));
+}
+
+void n_compute(int n, emp e[n])
+{
+    for (int i = 0; i < n; i++)
+        one_compute(&e[i]);
+}
+
+void one_output(emp e)
+{
+    printf("%s \t %f hours, $%f\n", e.name, e.h,  e.pay);
+}
+
+void output_n(int n, emp e[n])
+{
+    for (int i = 0; i < n; i++)
+        one_output(e[i]);
+}
+
+int main()
+{
+    int n;
+    printf("Enter number of employees:\n");
+    scanf("%d", &n);
+    emp e[n];
+    input_n(n, e);
+    tc(n, e);
+    n_compute(n, e);
+    output_n(n, e);
+
+    return 0;
+}
+
